@@ -1,0 +1,30 @@
+{
+  "name": "qr",
+  "short_name": "qr",
+  "lang": "pl-PL",
+  "id": "/qr/",
+  "start_url": "/qr/",
+  "scope": "/qr/",
+  "display": "standalone",
+  "background_color": "#ecf2ee",
+  "theme_color": "#0f6d48",
+  "description": "qr",
+  "icons": [
+    {
+      "src": "/qr/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "share_target": {
+    "action": "/qr/",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
