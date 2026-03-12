@@ -412,12 +412,9 @@ const App = () => {
                     px: 1.25,
                     borderRadius: 2,
                     border: '1px solid',
-                    borderColor: selectedId === contact.id ? 'primary.main' : 'divider',
+                    borderColor: 'divider',
                     mb: 1,
-                    bgcolor:
-                      selectedId === contact.id
-                        ? (t) => alpha(t.palette.primary.main, 0.08)
-                        : 'background.paper',
+                    bgcolor: 'background.paper',
                   }}
                 >
                   <Typography variant='subtitle2' sx={{ fontWeight: 700 }}>
