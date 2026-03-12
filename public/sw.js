@@ -1,4 +1,4 @@
-const CACHE = 'qr';
+const CACHE = 'qr-v2';
 const SCOPE = new URL(self.registration.scope).pathname.replace(/\/$/, '');
 const APP_SHELL = [`${SCOPE}/`, `${SCOPE}/manifest.webmanifest`, `${SCOPE}/icon.svg`];
 
@@ -18,6 +18,21 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') {
+    return;
+  }
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const cloned = response.clone();
+          if (response.ok) {
+            caches.open(CACHE).then((cache) => cache.put(`${SCOPE}/`, cloned));
+          }
+          return response;
+        })
+        .catch(() => caches.match(`${SCOPE}/`))
+    );
     return;
   }
 
