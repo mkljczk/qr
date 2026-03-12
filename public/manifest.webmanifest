@@ -24,7 +24,7 @@
     }
   ],
   "share_target": {
-    "action": "/qr/",
+    "action": "/qr/?title={title}&text={text}&url={url}",
     "method": "GET",
     "enctype": "application/x-www-form-urlencoded",
     "params": {
